@@ -4,10 +4,10 @@
     "max_open_trades": 8,
     "tradable_balance_ratio": 1.00,
     "stake_currency": "USDT",
-    "stake_amount": 13.75,
+    "stake_amount": 25,
     "fiat_display_currency": "USD",
     "amend_last_stake_amount": true,
-    "dry_run_wallet": 110,
+    "dry_run_wallet": 200,
 
     "unfilledtimeout": {
         "buy": 10,
@@ -26,7 +26,7 @@
         "use_order_book": false,
         "order_book_min": 1,
         "order_book_max": 1,
-        "use_sell_signal": true,
+        "use_sell_signal": false,
         "sell_profit_only": false,
         "ignore_roi_if_buy_signal": false
     },
@@ -42,18 +42,14 @@
         "pair_whitelist": [
             "BTC/USDT",
             "ETH/USDT",
-            "MATIC/USDT",
-            "LINK/USDT",
+			"XLM/USDT",
             "LTC/USDT",
-            "ETC/USDT",
-            "XLM/USDT",
-            "OMG/USDT",
-            "ZEC/USDT",
             "XMR/USDT",
-            "ATOM/USDT",
-            "ALGO/USDT",
-            "ZRX/USDT",
-            "BTT/USDT"
+			"ADA/USDT",
+			"BSV/USDT",
+			"LUNA/USDT",
+			"NEO/USDT",
+			
         ],
         "pair_blacklist": [
         ]
@@ -86,3 +82,4 @@
         "process_throttle_secs": 5
     }
 }
+
