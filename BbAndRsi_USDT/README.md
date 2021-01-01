@@ -21,9 +21,3 @@ backtested on 2020-12-30
 ## One Month
 ![onemonth](https://user-images.githubusercontent.com/59344613/103338523-8760fd00-4a33-11eb-9e56-45cb5a3da9ff.JPG)
 
-
-Please feel free to contact me with questions, and leave issues if found.
-=======
-## Welcome to my strategy repository
-As of right now, I am working to optimize various strategies for different exchanges and pairs. Please test the strategies before you use them.
->>>>>>> Stashed changes
