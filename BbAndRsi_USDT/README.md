@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 # BB and RSI freqtrade bot
 This is the strategy, config, and hyperopt for a bot ive been working on the last couple of weeks. The indicators used ar Bolinger Bands and Relative Strength Index.
 It has been built and optimized for Bittrex with USDT pairs. Please test before use, and ofcourse, this is for educational purposes only ;)
