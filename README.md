@@ -1,5 +1,6 @@
 # BB and RSI freqtrade bot
 This is the strategy, config, and hyperopt for a bot ive been working on the last couple of weeks. The indicators used ar Bolinger Bands and Relative Strength Index.
+It has been built and optimized for Bittrex with USDT pairs. Please test before use, and ofcourse, this is for educational purposes only ;)
 
 ## How it chooses to buy and sell
 The bot will buy when the close of the candle crosses the bottom Bollinger Band and when the RSI is less than a certain value, and will sell based on when the minimal ROI is reached. The minimal ROI has been determiend by hyperoptimizing the strategy on 365 days. 
