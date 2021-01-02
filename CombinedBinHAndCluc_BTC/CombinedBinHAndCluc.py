@@ -21,6 +21,7 @@ class CombinedBinHAndCluc(IStrategy):
     # - if the market is constantly green(like in JAN 2018) the best performance is reached with
     #   "max_open_trades" = 2 and minimal_roi = 0.01
       # ROI table:
+    # ROI table:
     minimal_roi = {
         "0": 0.09352,
         "8": 0.03621,
@@ -36,6 +37,7 @@ class CombinedBinHAndCluc(IStrategy):
     trailing_stop_positive = 0.33726
     trailing_stop_positive_offset = 0.43607
     trailing_only_offset_is_reached = True
+
     
     timeframe = '5m'
 
