@@ -133,11 +133,11 @@ class CombinedBinHAndClucOpt(IHyperOpt):
         Define your Hyperopt space for searching buy strategy parameters.
         """
         return [
-            Real(0.0, 0.015, name='buy-bbdelta-close'),
-            Real(0.0, 0.025, name='buy-closedelta-close'),
+            Real(0.0, 0.02, name='buy-bbdelta-close'),
+            Real(0.0, 0.03, name='buy-closedelta-close'),
             Real(0.0, 1.0, name='buy-tail-bbdelta'),
-            Real(0.0, 1.3, name='buy-close-bblowerband'),
-            Integer(10, 30, name='buy-volume')
+            Real(0.0, 1.5, name='buy-close-bblowerband'),
+            Integer(10, 40, name='buy-volume')
         ]
 
     @staticmethod
@@ -146,7 +146,7 @@ class CombinedBinHAndClucOpt(IHyperOpt):
         Define the sell strategy parameters to be used by Hyperopt.
         """
         def populate_sell_trend(dataframe: DataFrame, metadata: dict) -> DataFrame:
-            return None
+            return dataframe
 
         return populate_sell_trend
 
