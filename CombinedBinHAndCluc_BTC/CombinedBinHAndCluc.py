@@ -38,7 +38,7 @@ class CombinedBinHAndCluc(IStrategy):
     }
 
     # Stoploss:
-    stoploss = -0.06582
+    stoploss = -0.0658
 
     # Trailing stop:
     trailing_stop = False
@@ -46,7 +46,7 @@ class CombinedBinHAndCluc(IStrategy):
     trailing_stop_positive_offset = 0.03082
     trailing_only_offset_is_reached = True
 
-    timeframe = '5m'
+    timeframe = '1m'
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         # strategy BinHV45
@@ -68,15 +68,15 @@ class CombinedBinHAndCluc(IStrategy):
         dataframe.loc[
             (  # strategy BinHV45
                     dataframe['lower'].shift().gt(0) &
-                    dataframe['bbdelta'].gt(dataframe['close'] * 0.01244) &
-                    dataframe['closedelta'].gt(dataframe['close'] *  0.0242) &
-                    dataframe['tail'].lt(dataframe['bbdelta'] * 0.71795) &
+                    dataframe['bbdelta'].gt(dataframe['close'] * 0.00703) &
+                    dataframe['closedelta'].gt(dataframe['close'] * 0.01476) &
+                    dataframe['tail'].lt(dataframe['bbdelta'] * 0.03632) &
                     dataframe['close'].lt(dataframe['lower'].shift()) &
                     dataframe['close'].le(dataframe['close'].shift())
             ) |
             (  # strategy ClucMay72018
                     (dataframe['close'] < dataframe['ema_slow']) &
-                    (dataframe['close'] < 0.9658 * dataframe['bb_lowerband']) &
+                    (dataframe['close'] < 0.98863 * dataframe['bb_lowerband']) &
                     (dataframe['volume'] < (dataframe['volume_mean_slow'].shift(1) * 34))
             ),
             'buy'
