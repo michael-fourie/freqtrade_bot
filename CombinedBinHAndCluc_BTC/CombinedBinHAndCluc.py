@@ -22,28 +22,31 @@ class CombinedBinHAndCluc(IStrategy):
     #   "max_open_trades" = 2 and minimal_roi = 0.01
       # ROI table:
     # ROI table:
+    # ROI table:
     minimal_roi = {
-        "0": 0.09352,
-        "8": 0.03621,
-        "19": 0.01541,
-        "36": 0
+        "0": 0.02572,
+        "121": 0.02282,
+        "192": 0.01886,
+        "415": 0.0175,
+        "511": 0.0136,
+        "515": 0.00991,
+        "543": 0.00613,
+        "780": 0.0042,
+        "1080": 0.00295,
+        "1296": 0.00034,
+        "1370": 0
     }
 
     # Stoploss:
-    stoploss = -0.04954
+    stoploss = -0.06582
 
     # Trailing stop:
-    trailing_stop = True
-    trailing_stop_positive = 0.33726
-    trailing_stop_positive_offset = 0.43607
+    trailing_stop = False
+    trailing_stop_positive = 0.0198
+    trailing_stop_positive_offset = 0.03082
     trailing_only_offset_is_reached = True
 
-    
     timeframe = '5m'
-
-    use_sell_signal = True
-    sell_profit_only = False
-    ignore_roi_if_buy_signal = False
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         # strategy BinHV45
@@ -65,16 +68,16 @@ class CombinedBinHAndCluc(IStrategy):
         dataframe.loc[
             (  # strategy BinHV45
                     dataframe['lower'].shift().gt(0) &
-                    dataframe['bbdelta'].gt(dataframe['close'] * 0.008) &
-                    dataframe['closedelta'].gt(dataframe['close'] * 0.0175) &
-                    dataframe['tail'].lt(dataframe['bbdelta'] * 0.25) &
+                    dataframe['bbdelta'].gt(dataframe['close'] * 0.01244) &
+                    dataframe['closedelta'].gt(dataframe['close'] *  0.0242) &
+                    dataframe['tail'].lt(dataframe['bbdelta'] * 0.71795) &
                     dataframe['close'].lt(dataframe['lower'].shift()) &
                     dataframe['close'].le(dataframe['close'].shift())
             ) |
             (  # strategy ClucMay72018
                     (dataframe['close'] < dataframe['ema_slow']) &
-                    (dataframe['close'] < 0.985 * dataframe['bb_lowerband']) &
-                    (dataframe['volume'] < (dataframe['volume_mean_slow'].shift(1) * 20))
+                    (dataframe['close'] < 0.9658 * dataframe['bb_lowerband']) &
+                    (dataframe['volume'] < (dataframe['volume_mean_slow'].shift(1) * 34))
             ),
             'buy'
         ] = 1
@@ -87,4 +90,5 @@ class CombinedBinHAndCluc(IStrategy):
             (dataframe['close'] > dataframe['bb_middleband']),
             'sell'
         ] = 1
+
         return dataframe
