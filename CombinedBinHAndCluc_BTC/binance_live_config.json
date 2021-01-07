@@ -1,20 +1,19 @@
 {
-    "max_open_trades": 20,
+    "max_open_trades": 2,
     "stake_currency": "BTC",
-    "stake_amount": 0.0005,
+    "stake_amount": 0.001,
     "amend_last_stake_amount": true,
-    "tradable_balance_ratio": 0.15,
-    "fiat_display_currency": "CAD",
-    "timeframe": "5m",
+    "tradable_balance_ratio": 1.00,
+    "fiat_display_currency": "USD",
+    "timeframe": "1m",
     "dry_run": false,
-    "dry_run_wallet": 0.0078,
-    "cancel_open_orders_on_exit": false,
+	
     "unfilledtimeout": {
-        "buy": 20,
-        "sell": 45
+        "buy": 10,
+        "sell": 15
     },
+	
     "bid_strategy": {
-        "price_side": "bid",
         "use_order_book": false,
         "ask_last_balance": 0.0,
         "order_book_top": 1,
@@ -23,17 +22,22 @@
             "bids_to_ask_delta": 1
         }
     },
+	
     "ask_strategy":{
-        "price_side": "ask",
         "use_order_book": false,
         "order_book_min": 1,
-        "order_book_max": 1
+        "order_book_max": 1,
+		"use_sell_signal": true,
+		"sell_profit_only": true,
+		"ignore_roi_if_buy_signal": false
     },
+	
     "order_types": {
         "buy": "limit",
         "sell": "limit",
         "stoploss": "market",
         "stoploss_on_exchange": false
+		"stoploss_on_exhange_interval": 60
     },
     "exchange": {
         "name": "binance",
@@ -45,28 +49,6 @@
             "rateLimit": 200
         },
         "pair_whitelist": [
-			"ETH/BTC",
-			"ADA/BTC",
-			"LTC/BTC",
-			"LRC/BTC",
-			"XLM/BTC",
-			"LINK/BTC",
-			"DOT/BTC",
-			"BCH/BTC",
-			"VET/BTC",
-			"THETA/BTC",
-			"AAVE/BTC",
-			"TRX/BTC",
-			"SNX/BTC",
-			"ALGO/BTC",
-			"OMG/BTC",
-			"ANKR/BTC",
-            "IOST/BTC",
-            "IOTX/BTC",
-            "MITH/BTC",
-            "ONE/BTC",
-			"ETC/BTC",
-			"DASH/BTC"
 			
 		],
         "pair_blacklist": [
@@ -85,38 +67,21 @@
     },
     "pairlists": [
         {
-			"method": "StaticPairList",
+			"method": "VolumePairList",
+			"number_assets": 40,
+			"sort_key": "quoteVolume",
+			"refresh_period": 1000
 		},
+		{"method":  "SpreadFilter", "max_spread_ratio": 0.005},
+		{"method": "ShuffleFilter", "seed": 42}
     ],
-    "edge": {
-        "enabled": false,
-        "process_throttle_secs": 3600,
-        "calculate_since_number_of_days": 7,
-        "allowed_risk": 0.01,
-        "stoploss_range_min": -0.01,
-        "stoploss_range_max": -0.075,
-        "stoploss_range_step": -0.001,
-        "minimum_winrate": 0.60,
-        "minimum_expectancy": 0.20,
-        "min_trade_number": 15,
-        "max_trade_duration_minute": 1440,
-        "remove_pumps": false
-    },
+    
     "telegram": {
         "enabled": true,
         "token": "",
         "chat_id": ""
     },
-    "api_server": {
-        "enabled": false,
-        "listen_ip_address": "127.0.0.1",
-        "listen_port": 8080,
-        "verbosity": "info",
-        "jwt_secret_key": "somethingrandom",
-        "CORS_origins": [],
-        "username": "",
-        "password": ""
-    },
+	
     "initial_state": "running",
     "forcebuy_enable": true,
     "internals": {

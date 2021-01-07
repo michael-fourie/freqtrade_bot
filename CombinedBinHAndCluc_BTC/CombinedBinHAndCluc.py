@@ -24,24 +24,14 @@ class CombinedBinHAndCluc(IStrategy):
     # ROI table:
     # ROI table:
     minimal_roi = {
-        "0": 0.02572,
-        "121": 0.02282,
-        "192": 0.01886,
-        "415": 0.0175,
-        "511": 0.0136,
-        "515": 0.00991,
-        "543": 0.00613,
-        "780": 0.0042,
-        "1080": 0.00295,
-        "1296": 0.00034,
-        "1370": 0
+        "0": 0.015
     }
 
     # Stoploss:
     stoploss = -0.0658
 
     # Trailing stop:
-    trailing_stop = False
+    trailing_stop = True
     trailing_stop_positive = 0.0198
     trailing_stop_positive_offset = 0.03082
     trailing_only_offset_is_reached = True
