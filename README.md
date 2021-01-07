@@ -1,7 +1,8 @@
-# Welcome to my script repository
+# Freqtrade Strategy Repository
 ## Please test all scripts and dry run them before using them in live mode
 
 Contact me on discord if you have any questions! 
+Please feel free to create pull requests to add your stratagies!
 
 
 
