@@ -1,91 +1,93 @@
 {
-    "max_open_trades": 2,
-    "stake_currency": "BTC",
-    "stake_amount": 0.001,
-    "amend_last_stake_amount": true,
-    "tradable_balance_ratio": 1.00,
-    "fiat_display_currency": "USD",
-    "timeframe": "1m",
-    "dry_run": false,
-	
-    "unfilledtimeout": {
-        "buy": 10,
-        "sell": 15
-    },
-	
-    "bid_strategy": {
-        "use_order_book": false,
-        "ask_last_balance": 0.0,
-        "order_book_top": 1,
-        "check_depth_of_market": {
-            "enabled": false,
-            "bids_to_ask_delta": 1
-        }
-    },
-	
-    "ask_strategy":{
-        "use_order_book": false,
-        "order_book_min": 1,
-        "order_book_max": 1,
-		"use_sell_signal": true,
-		"sell_profit_only": true,
-		"ignore_roi_if_buy_signal": false
-    },
-	
-    "order_types": {
-        "buy": "limit",
-        "sell": "limit",
-        "stoploss": "market",
-        "stoploss_on_exchange": false
-		"stoploss_on_exhange_interval": 60
-    },
-    "exchange": {
-        "name": "binance",
-        "key": "",
-        "secret": "",
-        "ccxt_config": {"enableRateLimit": true},
-        "ccxt_async_config": {
-            "enableRateLimit": true,
-            "rateLimit": 200
-        },
-        "pair_whitelist": [
-			
-		],
-        "pair_blacklist": [
-            "BNB/BTC",
-            "SC/BTC",
-			"XVG/BTC",
-			"FUN/BTC",
-			"RSR/BTC",
-			"DGB/BTC",
-			"VET/BTC",
-			"CHZ/BTC",
-			"DOGE/BTC",
-			"WBTC/BTC",
-			"TRX/BTC"
-        ]
-    },
-    "pairlists": [
-        {
-			"method": "VolumePairList",
-			"number_assets": 40,
-			"sort_key": "quoteVolume",
-			"refresh_period": 1000
-		},
-		{"method":  "SpreadFilter", "max_spread_ratio": 0.005},
-		{"method": "ShuffleFilter", "seed": 42}
-    ],
-    
-    "telegram": {
-        "enabled": true,
-        "token": "",
-        "chat_id": ""
-    },
-	
-    "initial_state": "running",
-    "forcebuy_enable": true,
-    "internals": {
-        "process_throttle_secs": 5
-    },
-    "download_trades": true
+   "max_open_trades":2,
+   "stake_currency":"BTC",
+   "stake_amount":0.001,
+   "amend_last_stake_amount":true,
+   "tradable_balance_ratio":1.00,
+   "fiat_display_currency":"USD",
+   "timeframe":"1m",
+   "dry_run":false,
+   "unfilledtimeout":{
+      "buy":10,
+      "sell":15
+   },
+   "bid_strategy":{
+      "use_order_book":false,
+      "ask_last_balance":0.0,
+      "order_book_top":1,
+      "check_depth_of_market":{
+         "enabled":false,
+         "bids_to_ask_delta":1
+      }
+   },
+   "ask_strategy":{
+      "use_order_book":false,
+      "order_book_min":1,
+      "order_book_max":1,
+      "use_sell_signal":true,
+      "sell_profit_only":true,
+      "ignore_roi_if_buy_signal":false
+   },
+   "order_types":{
+      "buy":"limit",
+      "sell":"limit",
+      "stoploss":"market",
+      "stoploss_on_exchange":false,
+      "stoploss_on_exchange_interval":60
+   },
+   "exchange":{
+      "name":"binance",
+      "key":"",
+      "secret":"",
+      "ccxt_config":{
+         "enableRateLimit":true
+      },
+      "ccxt_async_config":{
+         "enableRateLimit":true,
+         "rateLimit":200
+      },
+      "pair_whitelist":[
+         
+      ],
+      "pair_blacklist":[
+         "BNB/BTC",
+         "SC/BTC",
+         "XVG/BTC",
+         "FUN/BTC",
+         "RSR/BTC",
+         "DGB/BTC",
+         "VET/BTC",
+         "CHZ/BTC",
+         "DOGE/BTC",
+         "WBTC/BTC",
+         "TRX/BTC"
+      ]
+   },
+   "pairlists":[
+      {
+         "method":"VolumePairList",
+         "number_assets":40,
+         "sort_key":"quoteVolume",
+         "refresh_period":1000
+      },
+      {
+         "method":"SpreadFilter",
+         "max_spread_ratio":0.005
+      },
+      {
+         "method":"ShuffleFilter",
+         "seed":42
+      }
+   ],
+   "telegram":{
+      "enabled":true,
+      "token":"",
+      "chat_id":""
+   },
+   "initial_state":"running",
+   "forcebuy_enable":true,
+   "internals":{
+      "process_throttle_secs":5
+   },
+   "download_trades":true
 }
