@@ -36,8 +36,8 @@
         "buy": "limit",
         "sell": "limit",
         "stoploss": "market",
-        "stoploss_on_exchange": false
-		"stoploss_on_exhange_interval": 60
+        "stoploss_on_exchange": false,
+	"stoploss_on_exhange_interval": 60
     },
     "exchange": {
         "name": "binance",
@@ -54,15 +54,15 @@
         "pair_blacklist": [
             "BNB/BTC",
             "SC/BTC",
-			"XVG/BTC",
-			"FUN/BTC",
-			"RSR/BTC",
-			"DGB/BTC",
-			"VET/BTC",
-			"CHZ/BTC",
-			"DOGE/BTC",
-			"WBTC/BTC",
-			"TRX/BTC"
+	    "XVG/BTC",
+	    "FUN/BTC",
+	    "RSR/BTC",
+	    "DGB/BTC",
+	    "VET/BTC",
+	    "CHZ/BTC",
+	    "DOGE/BTC",
+	    "WBTC/BTC",
+	    "TRX/BTC"
         ]
     },
     "pairlists": [
